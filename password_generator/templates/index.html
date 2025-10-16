@@ -9,405 +9,1050 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-    background: #2f3033;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
+            background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #e6edf3;
+        }
 
         .container {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background: rgba(22, 27, 34, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             width: 100%;
-            max-width: 450px;
-            padding: 30px;
+            max-width: 480px;
+            padding: 35px 30px;
+            border: 1px solid #30363d;
+        }
+
+        .auth-container {
+            max-width: 400px;
+            background: rgba(22, 27, 34, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            padding: 35px 30px;
+            border: 1px solid #30363d;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .auth-header h1 {
+            color: #f0f6fc;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
 
         .header h1 {
-            color: #2d3748;
-            font-size: 24px;
+            color: #f0f6fc;
+            font-size: 28px;
+            font-weight: 700;
             margin-bottom: 8px;
         }
 
         .header p {
-            color: #718096;
+            color: #8b949e;
             font-size: 14px;
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #30363d;
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: #8b949e;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .auth-tab.active {
+            color: #58a6ff;
+            border-bottom-color: #58a6ff;
+        }
+
+        .auth-tab:hover {
+            color: #58a6ff;
         }
 
         .password-display {
             display: flex;
-            margin-bottom: 25px;
-            border-radius: 10px;
+            margin-bottom: 30px;
+            border-radius: 12px;
             overflow: hidden;
-            border: 2px solid #e2e8f0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid #30363d;
         }
 
         #password {
             flex-grow: 1;
-            padding: 15px;
+            padding: 18px 20px;
             border: none;
-            background: #f8fafc;
-            font-size: 16px;
+            background: #0d1117;
+            font-size: 18px;
             font-weight: 500;
-            color: #2d3748;
+            color: #f0f6fc;
             outline: none;
+            font-family: 'Courier New', monospace;
+        }
+
+        #password::placeholder {
+            color: #484f58;
         }
 
         #copy-btn {
-            background: #5f816d;
+            background: linear-gradient(135deg, #238636, #2ea043);
             color: white;
             border: none;
-            padding: 0 20px;
+            padding: 0 25px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-left: 1px solid #30363d;
         }
 
         #copy-btn:hover {
-            background: #38a169;
+            background: linear-gradient(135deg, #2ea043, #3fb950);
+            transform: translateY(-1px);
         }
 
         .options {
+            background: #161b22;
+            padding: 25px;
+            border-radius: 12px;
             margin-bottom: 25px;
+            border: 1px solid #30363d;
         }
 
         .option {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
-            padding: 10px 0;
+            margin-bottom: 20px;
+            padding: 12px 0;
+            border-bottom: 1px solid #21262d;
+        }
+
+        .option:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
         }
 
         .option label {
             font-weight: 600;
-            color: #2d3748;
-            font-size: 14px;
+            color: #f0f6fc;
+            font-size: 15px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .option-count {
-            background: #edf2f7;
-            color: #4a5568;
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 12px;
+            background: #30363d;
+            color: #8b949e;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
             font-weight: 600;
         }
 
         input[type="number"] {
-            width: 70px;
-            padding: 8px;
-            border: 2px solid #e2e8f0;
-            border-radius: 6px;
-            font-size: 14px;
+            width: 80px;
+            padding: 10px 12px;
+            border: 2px solid #30363d;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
             text-align: center;
+            transition: border-color 0.3s;
+            background: #0d1117;
+            color: #f0f6fc;
         }
 
-        input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #58a6ff;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkbox-custom {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #484f58;
+            border-radius: 6px;
+            position: relative;
+            transition: all 0.3s ease;
+            background: #0d1117;
+        }
+
+        .checkbox-container input[type="checkbox"]:checked + .checkbox-custom {
+            background: linear-gradient(135deg, #1f6feb, #58a6ff);
+            border-color: #58a6ff;
+        }
+
+        .checkbox-container input[type="checkbox"]:checked + .checkbox-custom::after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #f0f6fc;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #30363d;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: border-color 0.3s;
+            background: #0d1117;
+            color: #f0f6fc;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #58a6ff;
+            background: #161b22;
         }
 
         .complexity {
+            background: #161b22;
+            padding: 25px;
+            border-radius: 12px;
             margin-bottom: 25px;
+            border: 1px solid #30363d;
         }
 
         .complexity label {
             display: block;
             font-weight: 600;
-            color: #222e42;
-            margin-bottom: 10px;
+            color: #f0f6fc;
+            margin-bottom: 15px;
+            font-size: 16px;
         }
 
         #complexity-slider {
             width: 100%;
-            margin: 10px 0;
+            height: 8px;
+            border-radius: 10px;
+            background: #30363d;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        #complexity-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1f6feb, #58a6ff);
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(31, 111, 235, 0.4);
+            border: 2px solid #0d1117;
         }
 
         .complexity-labels {
             display: flex;
             justify-content: space-between;
-            margin-top: 5px;
+            margin-top: 15px;
         }
 
         .complexity-label {
-            font-size: 11px;
-            color: #718096;
+            font-size: 12px;
+            color: #8b949e;
+            font-weight: 500;
+            text-align: center;
+            flex: 1;
+        }
+
+        .complexity-label.active {
+            color: #58a6ff;
+            font-weight: 600;
         }
 
         .actions {
             display: flex;
-            gap: 10px;
+            gap: 15px;
+            margin-bottom: 25px;
         }
 
         button {
             flex: 1;
-            padding: 15px;
+            padding: 18px;
             border: none;
-            border-radius: 8px;
-            font-size: 14px;
+            border-radius: 12px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #1f6feb, #58a6ff);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(31, 111, 235, 0.3);
         }
 
         #generate-btn {
-            background: #667eea;
+            background: linear-gradient(135deg, #1f6feb, #58a6ff);
             color: white;
+            box-shadow: 0 4px 15px rgba(31, 111, 235, 0.2);
         }
 
         #generate-btn:hover {
-            background: #5a6fd8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(31, 111, 235, 0.3);
         }
 
         #reset-btn {
-            background: #e2e8f0;
-            color: #4a5568;
+            background: #30363d;
+            color: #f0f6fc;
+            border: 2px solid #484f58;
         }
 
         #reset-btn:hover {
-            background: #cbd5e0;
+            background: #484f58;
+            border-color: #8b949e;
+            transform: translateY(-2px);
+        }
+
+        #save-btn {
+            background: linear-gradient(135deg, #238636, #2ea043);
+            color: white;
+        }
+
+        #save-btn:hover {
+            background: linear-gradient(135deg, #2ea043, #3fb950);
+            transform: translateY(-2px);
         }
 
         .info {
-            background: #f0fff4;
-            padding: 15px;
-            border-radius: 8px;
+            background: linear-gradient(135deg, #1c532c, #238636);
+            padding: 20px;
+            border-radius: 12px;
             text-align: center;
-            margin-top: 20px;
-            border-left: 4px solid #44805d;
+            border-left: 4px solid #3fb950;
         }
 
         .info p {
-            color: #1d583b;
-            font-size: 12px;
+            margin: 0;
+            color: #f0f6fc;
             font-weight: 600;
+            font-size: 14px;
+        }
+
+        .error-message {
+            background: #da3633;
+            color: #f0f6fc;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+            border-left: 4px solid #f85149;
+        }
+
+        .auth-switch {
+            text-align: center;
+            margin-top: 20px;
+            color: #8b949e;
+        }
+
+        .auth-switch a {
+            color: #58a6ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .password-item {
+            background: #161b22;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 4px solid #58a6ff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            border: 1px solid #30363d;
+        }
+
+        .password-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .password-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .password-list::-webkit-scrollbar-track {
+            background: #0d1117;
+            border-radius: 4px;
+        }
+
+        .password-list::-webkit-scrollbar-thumb {
+            background: #30363d;
+            border-radius: 4px;
         }
 
         .notification {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 20px;
-            background: #375242;
+            top: 30px;
+            right: 30px;
+            padding: 18px 25px;
+            background: linear-gradient(135deg, #238636, #2ea043);
             color: white;
-            border-radius: 8px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(35, 134, 54, 0.3);
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            font-weight: 600;
+            transform: translateX(100px);
+            border: 1px solid #3fb950;
         }
 
         .notification.show {
             opacity: 1;
+            transform: translateX(0);
+        }
+
+        .navigation {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .nav-button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            color: #f0f6fc;
+        }
+
+        .user-greeting {
+            flex: 2;
+            background: #30363d;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #f0f6fc;
+            border: 1px solid #484f58;
+        }
+
+        @media (max-width: 480px) {
+            .container, .auth-container {
+                padding: 25px 20px;
+                margin: 10px;
+            }
+            
+            .actions {
+                flex-direction: column;
+            }
+            
+            .option {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            
+            .option label {
+                width: 100%;
+            }
+            
+            .header h1, .auth-header h1 {
+                font-size: 24px;
+            }
+            
+            .navigation {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1> 🔑🖥 Генератор паролей</h1>
-            <p>Создавайте надежные пароли легко и быстро</p>
-        </div>
-        
-        <div class="password-display">
-            <input type="text" id="password" readonly value="{{ initial_password }}">
-            <button id="copy-btn">Копировать</button>
-        </div>
-        
-        <div class="options">
-            <div class="option">
-                <label for="length">
-                    <span>Длина пароля:</span>
-                </label>
-                <input type="number" id="length" min="4" max="50" value="12">
-                <div class="option-count" id="length-count">12</div>
-            </div>
-            
-            <div class="option">
-                <label>
-                    <input type="checkbox" id="uppercase" checked>
-                    Заглавные буквы (A-Z)
-                </label>
-                <div class="option-count" id="uppercase-count">26</div>
-            </div>
-            
-            <div class="option">
-                <label>
-                    <input type="checkbox" id="lowercase" checked>
-                    Строчные буквы (a-z)
-                </label>
-                <div class="option-count" id="lowercase-count">26</div>
-            </div>
-            
-            <div class="option">
-                <label>
-                    <input type="checkbox" id="numbers" checked>
-                    Цифры (0-9)
-                </label>
-                <div class="option-count" id="numbers-count">10</div>
-            </div>
-            
-            <div class="option">
-                <label>
-                    <input type="checkbox" id="symbols">
-                    Специальные символы (!@#$%^&*)
-                </label>
-                <div class="option-count" id="symbols-count">10</div>
-            </div>
-        </div>
-        
-        <div class="complexity">
-            <label for="complexity-slider">Сложность пароля:</label>
-            <input type="range" id="complexity-slider" min="1" max="5" value="3">
-            <div class="complexity-labels">
-                <span class="complexity-label">Простой</span>
-                <span class="complexity-label">Средний</span>
-                <span class="complexity-label">Сложный</span>
-                <span class="complexity-label">Очень сложный</span>
-                <span class="complexity-label">Максимальный</span>
-            </div>
-        </div>
-        
-        <div class="actions">
-            <button id="generate-btn">Сгенерировать пароль</button>
-            <button id="reset-btn">Сбросить настройки</button>
-        </div>
-
-        
+    <div id="app">
+        <!-- Контент будет рендериться здесь -->
     </div>
-    
+
     <div class="notification" id="notification">Пароль скопирован!</div>
 
     <script>
-        const passwordInput = document.getElementById('password');
-        const copyButton = document.getElementById('copy-btn');
-        const generateButton = document.getElementById('generate-btn');
-        const resetButton = document.getElementById('reset-btn');
-        const lengthInput = document.getElementById('length');
-        const uppercaseCheckbox = document.getElementById('uppercase');
-        const lowercaseCheckbox = document.getElementById('lowercase');
-        const numbersCheckbox = document.getElementById('numbers');
-        const symbolsCheckbox = document.getElementById('symbols');
-        const complexitySlider = document.getElementById('complexity-slider');
-        const notification = document.getElementById('notification');
-
-        function updateCounters() {
-            document.getElementById('length-count').textContent = lengthInput.value;
-            document.getElementById('uppercase-count').textContent = uppercaseCheckbox.checked ? '26' : '0';
-            document.getElementById('lowercase-count').textContent = lowercaseCheckbox.checked ? '26' : '0';
-            document.getElementById('numbers-count').textContent = numbersCheckbox.checked ? '10' : '0';
-            document.getElementById('symbols-count').textContent = symbolsCheckbox.checked ? '10' : '0';
+        // Генератор паролей
+        class PasswordGenerator {
+            constructor() {
+                this.uppercase_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                this.lowercase_chars = 'abcdefghijklmnopqrstuvwxyz';
+                this.number_chars = '0123456789';
+                this.symbol_chars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+            }
+            
+            generatePassword(length = 12, uppercase = true, lowercase = true, numbers = true, symbols = false) {
+                let charset = '';
+                
+                if (uppercase) charset += this.uppercase_chars;
+                if (lowercase) charset += this.lowercase_chars;
+                if (numbers) charset += this.number_chars;
+                if (symbols) charset += this.symbol_chars;
+                
+                if (!charset) {
+                    charset = this.lowercase_chars + this.number_chars;
+                }
+                
+                if (length < 4) length = 4;
+                else if (length > 50) length = 50;
+                
+                let password = '';
+                for (let i = 0; i < length; i++) {
+                    password += charset.charAt(Math.floor(Math.random() * charset.length));
+                }
+                return password;
+            }
         }
 
-        async function generatePassword() {
-            try {
-                const data = {
-                    'custom': true,
-                    'length': parseInt(lengthInput.value),
-                    'uppercase': uppercaseCheckbox.checked,
-                    'lowercase': lowercaseCheckbox.checked,
-                    'numbers': numbersCheckbox.checked,
-                    'symbols': symbolsCheckbox.checked
-                };
+        // Система аутентификации
+        class AuthSystem {
+            constructor() {
+                this.users = JSON.parse(localStorage.getItem('users')) || [];
+                this.currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+                this.savedPasswords = JSON.parse(localStorage.getItem('savedPasswords')) || [];
+            }
+
+            register(username, email, password) {
+                if (this.users.find(user => user.username === username || user.email === email)) {
+                    return { success: false, error: 'Пользователь с таким именем или email уже существует' };
+                }
                 
-                const response = await fetch('/generate', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
+                if (password.length < 6) {
+                    return { success: false, error: 'Пароль должен содержать минимум 6 символов' };
+                }
+
+                const user = {
+                    id: Date.now().toString(),
+                    username,
+                    email,
+                    password: btoa(password),
+                    createdAt: new Date().toISOString()
+                };
+
+                this.users.push(user);
+                localStorage.setItem('users', JSON.stringify(this.users));
+                
+                this.login(username, password);
+                return { success: true };
+            }
+
+            login(username, password) {
+                const user = this.users.find(u => u.username === username && u.password === btoa(password));
+                if (user) {
+                    this.currentUser = user;
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    return { success: true };
+                }
+                return { success: false, error: 'Неверное имя пользователя или пароль' };
+            }
+
+            logout() {
+                this.currentUser = null;
+                localStorage.removeItem('currentUser');
+            }
+
+            savePassword(password, description = '') {
+                if (!this.currentUser) return false;
+
+                const savedPassword = {
+                    id: Date.now().toString(),
+                    user_id: this.currentUser.id,
+                    password,
+                    description,
+                    created_at: new Date().toISOString()
+                };
+
+                this.savedPasswords.push(savedPassword);
+                localStorage.setItem('savedPasswords', JSON.stringify(this.savedPasswords));
+                return true;
+            }
+
+            getSavedPasswords() {
+                if (!this.currentUser) return [];
+                return this.savedPasswords.filter(pwd => pwd.user_id === this.currentUser.id);
+            }
+        }
+
+        // Рендерер интерфейса
+        class UIRenderer {
+            constructor(authSystem, passwordGenerator) {
+                this.authSystem = authSystem;
+                this.passwordGenerator = passwordGenerator;
+                this.currentView = 'login';
+            }
+
+            render() {
+                const app = document.getElementById('app');
+                
+                if (!this.authSystem.currentUser) {
+                    this.renderAuth(app);
+                } else {
+                    if (this.currentView === 'main') {
+                        this.renderMain(app);
+                    } else if (this.currentView === 'saved') {
+                        this.renderSaved(app);
+                    }
+                }
+            }
+
+            renderAuth(app) {
+                const isLogin = this.currentView === 'login';
+                
+                app.innerHTML = `
+                    <div class="auth-container">
+                        <div class="auth-header">
+                            <h1>🔐 Генератор паролей</h1>
+                            <p>${isLogin ? 'Войдите в свой аккаунт' : 'Создайте новый аккаунт'}</p>
+                        </div>
+
+                        <div class="auth-tabs">
+                            <a href="#" class="auth-tab ${isLogin ? 'active' : ''}" onclick="uiRenderer.switchAuthView('login')">Вход</a>
+                            <a href="#" class="auth-tab ${!isLogin ? 'active' : ''}" onclick="uiRenderer.switchAuthView('register')">Регистрация</a>
+                        </div>
+
+                        <div id="auth-error" style="display: none;"></div>
+
+                        <form onsubmit="event.preventDefault(); ${isLogin ? 'uiRenderer.handleLogin()' : 'uiRenderer.handleRegister()'}">
+                            ${!isLogin ? `
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            ` : ''}
+
+                            <div class="form-group">
+                                <label for="username">Имя пользователя:</label>
+                                <input type="text" id="username" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Пароль:</label>
+                                <input type="password" id="password" required>
+                            </div>
+
+                            ${!isLogin ? `
+                            <div class="form-group">
+                                <label for="confirm_password">Подтвердите пароль:</label>
+                                <input type="password" id="confirm_password" required>
+                            </div>
+                            ` : ''}
+
+                            <button type="submit" class="btn-primary">
+                                ${isLogin ? 'Войти' : 'Зарегистрироваться'}
+                            </button>
+                        </form>
+
+                        <div class="auth-switch">
+                            ${isLogin ? 'Нет аккаунта? <a href="#" onclick="uiRenderer.switchAuthView(\'register\')">Зарегистрируйтесь</a>' : 'Уже есть аккаунт? <a href="#" onclick="uiRenderer.switchAuthView(\'login\')">Войдите</a>'}
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderMain(app) {
+                const initialPassword = this.passwordGenerator.generatePassword();
+                
+                app.innerHTML = `
+                    <div class="container">
+                        <div class="header">
+                            <h1>🔑 Генератор паролей</h1>
+                            <p>Создавайте надежные пароли легко и быстро</p>
+                        </div>
+
+                        <div class="navigation">
+                            <span class="user-greeting">👋 Привет, ${this.authSystem.currentUser.username}!</span>
+                            <a href="#" class="nav-button" style="background: #da7a0e; color: white;" onclick="uiRenderer.switchView('saved')">💾 Сохраненные</a>
+                            <a href="#" class="nav-button" style="background: #da3633; color: white;" onclick="uiRenderer.handleLogout()">🚪 Выйти</a>
+                        </div>
+                        
+                        <div class="password-display">
+                            <input type="text" id="password" readonly value="${initialPassword}">
+                            <button id="copy-btn">📋 Копировать</button>
+                        </div>
+                        
+                        <div class="options">
+                            <div class="option">
+                                <label for="length">
+                                    <span>Длина пароля:</span>
+                                </label>
+                                <input type="number" id="length" min="4" max="50" value="12">
+                                <div class="option-count" id="length-count">12</div>
+                            </div>
+                            
+                            <div class="option">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="uppercase" checked>
+                                    <span class="checkbox-custom"></span>
+                                    Заглавные буквы (A-Z)
+                                </label>
+                                <div class="option-count" id="uppercase-count">26</div>
+                            </div>
+                            
+                            <div class="option">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="lowercase" checked>
+                                    <span class="checkbox-custom"></span>
+                                    Строчные буквы (a-z)
+                                </label>
+                                <div class="option-count" id="lowercase-count">26</div>
+                            </div>
+                            
+                            <div class="option">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="numbers" checked>
+                                    <span class="checkbox-custom"></span>
+                                    Цифры (0-9)
+                                </label>
+                                <div class="option-count" id="numbers-count">10</div>
+                            </div>
+                            
+                            <div class="option">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="symbols">
+                                    <span class="checkbox-custom"></span>
+                                    Специальные символы (!@#$%^&*)
+                                </label>
+                                <div class="option-count" id="symbols-count">10</div>
+                            </div>
+                        </div>
+                        
+                        <div class="complexity">
+                            <label for="complexity-slider">Сложность пароля:</label>
+                            <input type="range" id="complexity-slider" min="1" max="5" value="3">
+                            <div class="complexity-labels">
+                                <span class="complexity-label">Простой</span>
+                                <span class="complexity-label">Средний</span>
+                                <span class="complexity-label">Сложный</span>
+                                <span class="complexity-label">Очень сложный</span>
+                                <span class="complexity-label">Максимальный</span>
+                            </div>
+                        </div>
+                        
+                        <div class="actions">
+                            <button id="generate-btn">🔄 Сгенерировать</button>
+                            <button id="reset-btn">🔄 Сбросить</button>
+                            <button id="save-btn">💾 Сохранить</button>
+                        </div>
+
+                        <div class="info">
+                            <p>💡 Совет: Используйте разные пароли для разных сервисов</p>
+                        </div>
+                    </div>
+                `;
+
+                this.attachMainEventListeners();
+                this.updateCounters();
+            }
+
+            renderSaved(app) {
+                const passwords = this.authSystem.getSavedPasswords();
+                
+                app.innerHTML = `
+                    <div class="container">
+                        <div class="header">
+                            <h1>💾 Сохраненные пароли</h1>
+                            <p>Ваши ранее сгенерированные пароли</p>
+                        </div>
+
+                        <div class="navigation">
+                            <span class="user-greeting">👋 Привет, ${this.authSystem.currentUser.username}!</span>
+                            <a href="#" class="nav-button" style="background: #1f6feb; color: white;" onclick="uiRenderer.switchView('main')">🔑 Генератор</a>
+                            <a href="#" class="nav-button" style="background: #da3633; color: white;" onclick="uiRenderer.handleLogout()">🚪 Выйти</a>
+                        </div>
+
+                        ${passwords.length ? `
+                        <div class="password-list">
+                            ${passwords.map(pwd => `
+                            <div class="password-item">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                    <strong style="font-family: monospace; font-size: 16px; color: #f0f6fc;">${pwd.password}</strong>
+                                    <button onclick="uiRenderer.copyPassword('${pwd.password}')" style="background: #238636; color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; border: 1px solid #3fb950;">Копировать</button>
+                                </div>
+                                ${pwd.description ? `<p style="color: #8b949e; margin: 5px 0;">${pwd.description}</p>` : ''}
+                                <small style="color: #484f58;">Создан: ${new Date(pwd.created_at).toLocaleString()}</small>
+                            </div>
+                            `).join('')}
+                        </div>
+                        ` : `
+                        <div style="text-align: center; padding: 40px; color: #8b949e;">
+                            <p>У вас нет сохраненных паролей</p>
+                            <a href="#" onclick="uiRenderer.switchView('main')" style="color: #58a6ff; font-weight: 600;">Сгенерируйте первый пароль</a>
+                        </div>
+                        `}
+                    </div>
+                `;
+            }
+
+            attachMainEventListeners() {
+                // Генерация пароля
+                document.getElementById('generate-btn').addEventListener('click', () => this.generatePassword());
+                
+                // Копирование
+                document.getElementById('copy-btn').addEventListener('click', () => this.copyToClipboard());
+                
+                // Сброс
+                document.getElementById('reset-btn').addEventListener('click', () => this.resetSettings());
+                
+                // Сохранение
+                document.getElementById('save-btn').addEventListener('click', () => this.savePassword());
+                
+                // Сложность
+                document.getElementById('complexity-slider').addEventListener('input', (e) => {
+                    this.handleComplexityChange(parseInt(e.target.value));
                 });
                 
-                const result = await response.json();
+                // Обновление при изменении настроек
+                ['uppercase', 'lowercase', 'numbers', 'symbols'].forEach(id => {
+                    document.getElementById(id).addEventListener('change', () => {
+                        this.updateCounters();
+                        this.generatePassword();
+                    });
+                });
                 
-                if (result.password) {
-                    passwordInput.value = result.password;
+                document.getElementById('length').addEventListener('change', () => {
+                    this.updateCounters();
+                    this.generatePassword();
+                });
+            }
+
+            updateCounters() {
+                const length = document.getElementById('length').value;
+                const uppercase = document.getElementById('uppercase').checked;
+                const lowercase = document.getElementById('lowercase').checked;
+                const numbers = document.getElementById('numbers').checked;
+                const symbols = document.getElementById('symbols').checked;
+
+                document.getElementById('length-count').textContent = length;
+                document.getElementById('uppercase-count').textContent = uppercase ? '26' : '0';
+                document.getElementById('lowercase-count').textContent = lowercase ? '26' : '0';
+                document.getElementById('numbers-count').textContent = numbers ? '10' : '0';
+                document.getElementById('symbols-count').textContent = symbols ? '10' : '0';
+            }
+
+            generatePassword() {
+                const length = parseInt(document.getElementById('length').value);
+                const uppercase = document.getElementById('uppercase').checked;
+                const lowercase = document.getElementById('lowercase').checked;
+                const numbers = document.getElementById('numbers').checked;
+                const symbols = document.getElementById('symbols').checked;
+
+                const password = this.passwordGenerator.generatePassword(
+                    length, uppercase, lowercase, numbers, symbols
+                );
+
+                document.getElementById('password').value = password;
+            }
+
+            handleComplexityChange(level) {
+                let password;
+                if (level === 1) {
+                    password = this.passwordGenerator.generatePassword(8, false, true, true, false);
+                } else if (level === 2) {
+                    password = this.passwordGenerator.generatePassword(12, true, true, true, false);
+                } else if (level === 3) {
+                    password = this.passwordGenerator.generatePassword(16, true, true, true, true);
+                } else if (level === 4) {
+                    password = this.passwordGenerator.generatePassword(20, true, true, true, true);
                 } else {
-                    showNotification('Ошибка генерации пароля');
+                    password = this.passwordGenerator.generatePassword(24, true, true, true, true);
                 }
-                
-            } catch (error) {
-                console.error('Error:', error);
-                showNotification('Ошибка соединения');
+
+                document.getElementById('password').value = password;
+            }
+
+            resetSettings() {
+                document.getElementById('length').value = 12;
+                document.getElementById('uppercase').checked = true;
+                document.getElementById('lowercase').checked = true;
+                document.getElementById('numbers').checked = true;
+                document.getElementById('symbols').checked = false;
+                document.getElementById('complexity-slider').value = 3;
+                this.updateCounters();
+                this.generatePassword();
+            }
+
+            copyToClipboard() {
+                const passwordInput = document.getElementById('password');
+                if (passwordInput && passwordInput.value) {
+                    passwordInput.select();
+                    document.execCommand('copy');
+                    this.showNotification('Пароль скопирован!');
+                }
+            }
+
+            copyPassword(password) {
+                navigator.clipboard.writeText(password).then(() => {
+                    this.showNotification('Пароль скопирован!');
+                });
+            }
+
+            savePassword() {
+                const password = document.getElementById('password').value;
+                if (password) {
+                    const description = prompt('Введите описание для этого пароля (необязательно):', '');
+                    if (this.authSystem.savePassword(password, description || '')) {
+                        this.showNotification('Пароль сохранен!');
+                    }
+                }
+            }
+
+            showNotification(message) {
+                const notification = document.getElementById('notification');
+                notification.textContent = message;
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 2000);
+            }
+
+            switchAuthView(view) {
+                this.currentView = view;
+                this.render();
+            }
+
+            switchView(view) {
+                this.currentView = view;
+                this.render();
+            }
+
+            handleLogin() {
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                const result = this.authSystem.login(username, password);
+                if (result.success) {
+                    this.currentView = 'main';
+                    this.render();
+                } else {
+                    this.showAuthError(result.error);
+                }
+            }
+
+            handleRegister() {
+                const username = document.getElementById('username').value;
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirm_password').value;
+
+                if (password !== confirmPassword) {
+                    this.showAuthError('Пароли не совпадают');
+                    return;
+                }
+
+                const result = this.authSystem.register(username, email, password);
+                if (result.success) {
+                    this.currentView = 'main';
+                    this.render();
+                } else {
+                    this.showAuthError(result.error);
+                }
+            }
+
+            handleLogout() {
+                this.authSystem.logout();
+                this.currentView = 'login';
+                this.render();
+            }
+
+            showAuthError(message) {
+                const errorDiv = document.getElementById('auth-error');
+                errorDiv.style.display = 'block';
+                errorDiv.className = 'error-message';
+                errorDiv.textContent = message;
             }
         }
 
-        function showNotification(message) {
-            notification.textContent = message;
-            notification.classList.add('show');
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 2000);
-        }
+        // Инициализация приложения
+        const authSystem = new AuthSystem();
+        const passwordGenerator = new PasswordGenerator();
+        const uiRenderer = new UIRenderer(authSystem, passwordGenerator);
 
-        function copyToClipboard() {
-            if (passwordInput.value) {
-                passwordInput.select();
-                document.execCommand('copy');
-                showNotification('Пароль скопирован!');
-            }
-        }
+        // Запуск приложения
+        uiRenderer.render();
 
-        // Инициализация
-        updateCounters();
-
-        // Обработчики событий
-        generateButton.addEventListener('click', generatePassword);
-        copyButton.addEventListener('click', copyToClipboard);
-
-        resetButton.addEventListener('click', () => {
-            lengthInput.value = 12;
-            uppercaseCheckbox.checked = true;
-            lowercaseCheckbox.checked = true;
-            numbersCheckbox.checked = true;
-            symbolsCheckbox.checked = false;
-            complexitySlider.value = 3;
-            updateCounters();
-            generatePassword();
-        });
-
-        complexitySlider.addEventListener('input', () => {
-            const level = parseInt(complexitySlider.value);
-            const data = {'complexity': level};
-            
-            fetch('/generate', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(data)
-            })
-            .then(r => r.json())
-            .then(result => {
-                if (result.password) {
-                    passwordInput.value = result.password;
-                }
-            });
-        });
-
-        // Обновление при изменении настроек
-        [uppercaseCheckbox, lowercaseCheckbox, numbersCheckbox, symbolsCheckbox].forEach(checkbox => {
-            checkbox.addEventListener('change', () => {
-                updateCounters();
-                generatePassword();
-            });
-        });
-
-        lengthInput.addEventListener('change', () => {
-            updateCounters();
-            generatePassword();
-        });
+        // Глобальные функции для обработки событий в HTML
+        window.uiRenderer = uiRenderer;
     </script>
 </body>
 </html>
