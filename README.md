@@ -36,3 +36,27 @@
 
 <img width="1913" height="955" alt="image" src="https://github.com/user-attachments/assets/b25e9174-07ae-4c0d-b886-d48cce4d3862" />
 
+
+
+
+Обновленная версия сайта:
+<img width="1027" height="839" alt="image" src="https://github.com/user-attachments/assets/fbf58341-0221-4380-bee8-9606c0dc47e3" />
+
+
+
+
+<img width="594" height="806" alt="image" src="https://github.com/user-attachments/assets/96ab319f-4c7a-4f06-9005-db1dfffbe1ad" />
+
+
+
+
+
+<img width="463" height="936" alt="image" src="https://github.com/user-attachments/assets/c3cf1dd2-65b3-45d9-9d28-88040eae81a4" />
+
+
+
+
+<img width="578" height="560" alt="image" src="https://github.com/user-attachments/assets/747d7270-b564-45ff-b9a9-8911dd684cfc" />
+
+
+
